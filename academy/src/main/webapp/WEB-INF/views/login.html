@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,8 +7,11 @@
 <body>
 <form th:action="@{/handle-login}" th:object="${login_form}" method="post">
   <input type="text" th:field="*{username}">
+    <p style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+
     <br>
     <input type="password" th:field="*{password}">
+    <p style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
     <br>
     <input type="submit" value="Login">
 </form>
