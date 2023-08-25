@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Danh sách sản phẩm</h1>
+<table border="1" cellpadding="20px" cellspacing="10px">
+    <tbody>
+    <tr th:each="p:${list}" >
+        <td th:text="${p.name}"></td>
+        <td><img width="200" height="200" style="object-fit: cover" th:src="${p.imageUrl}" alt="#"></td>
+        <td th:text="${p.price}"></td>
+        <td><a th:href="@{|/cart/addToCart/${p.id}|}">Buy</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
